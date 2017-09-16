@@ -1,0 +1,29 @@
+﻿<div class="container">
+    <div class="page-header">
+        <img src="../images/logo.png" style="width:350px; height:100px;" />
+    </div>
+    <div class="row">
+        <div class="col-xs-12" style="padding:5px">
+            <ul class="nav nav-pills nav-justified">
+                <li *ngIf="isUserAuthorize" class="active"><a routerLink="/home" class="active" routerLinkActive="active"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li *ngIf="isUserAuthorize"><a routerLink="/view" class="active" routerLinkActive="active"><span class="glyphicon glyphicon-search"></span> View All Employee</a></li>
+                <li *ngIf="isUserAuthorize"><a routerLink="/create" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span> Create Employee</a></li>
+                <li *ngIf="isUserAuthorize"><a routerLink="/logout" routerLinkActive="active"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+             </ul>
+            <hr />
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+<app-modal #modal>
+    <div class="app-modal-header">
+        Confirmation Dialog
+    </div>
+    <div class="app-modal-body">
+        Employee Deleted!
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" class="btn btn-default" (click)="modal.hide()">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+</app-modal>

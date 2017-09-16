@@ -1,0 +1,55 @@
+﻿<div class="alert alert-warning"><b>Add Employee</b></div>
+<div *ngIf="errorMsg !=null " class="alert alert-danger">{{errorMsg }}</div>
+<form #userForm="ngForm" (ngSubmit)="onCreate(userForm.value, userForm.form.valid)">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" #refName="ngModel" required class="form-control" name="name" ngModel />
+    </div>
+    <div *ngIf="userForm.submitted && refName.errors" class="alert alert-danger">
+        <div [hidden]="!refName.errors.required">
+            Employee Name is required
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Designation</label>
+        <input type="text" #refdesignation="ngModel" required class="form-control" name="designation" ngModel />
+    </div>
+    <div *ngIf="userForm.submitted && refdesignation.errors" class="alert alert-danger">
+        <div [hidden]="!refdesignation.errors.required">
+            Designation is required
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Gender</label>
+        <select id="gender" class="form-control" required name="gender" [(ngModel)]="model.Gender">
+            <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Salary</label>
+        <input type="text" #refSalary="ngModel" required class="form-control" name="salary" ngModel />
+    </div>
+    <div class="form-group">
+        <label>Photo</label>
+        <input id="photo" type="file" class="form-control" />
+    </div>
+    <div *ngIf="userForm.submitted && refSalary.errors" class="alert alert-danger">
+        <div [hidden]="!refSalary.errors.required">
+            Salary is required
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button #refPopUp type="button" (click)="modal.show()" hidden="hidden">Model PopUp</button>
+</form>
+
+<app-modal #modal>
+    <div class="app-modal-header">
+        <h3 style="font-weight:bold;">Confirmation Dialog</h3>
+    </div>
+    <div class="app-modal-body">
+        <p style="font-weight:bold; text-align:center">{{ dialogMsg }}</p>
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" class="btn btn-default" (click)="onConfirm()">Close</button>
+    </div>
+</app-modal>

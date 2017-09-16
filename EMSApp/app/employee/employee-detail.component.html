@@ -1,0 +1,69 @@
+﻿<div class="alert alert-warning"><b>Employee Details</b></div>
+<div *ngIf="errorMsg !=null" class="alert alert-danger">{{errorMsg }}</div>
+<form #userForm="ngForm">
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-2">
+            <div class="form-group">
+                <label></label>
+                <img src="upload/{{model.Photo}}" alt="photo: {{model.EmployeeName}}" style="width:120px; height:150px" />
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-8 col-md-10 divZIndex">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" #refName="ngModel" required class="form-control" name="name" [(ngModel)]="model.EmployeeName" [disabled]="!isEdit" />
+            </div>
+            <div *ngIf="userForm.submitted && refName.errors" class="alert alert-danger">
+                <div [hidden]="!refName.errors.required">
+                    Employee Name is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Designation</label>
+                <input type="text" #refdesignation="ngModel" required class="form-control" name="designation" [(ngModel)]="model.Designation" [disabled]="!isEdit" />
+            </div>
+            <div *ngIf="userForm.submitted && refdesignation.errors" class="alert alert-danger">
+                <div [hidden]="!refdesignation.errors.required">
+                    Designation is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <select id="gender" class="form-control" required name="gender" [(ngModel)]="model.Gender" [disabled]="!isEdit">
+                    <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Salary</label>
+                <input type="text" #refSalary="ngModel" required class="form-control" name="salary" [(ngModel)]="model.Salary" [disabled]="!isEdit" />
+            </div>
+            <div *ngIf="userForm.submitted && refSalary.errors" class="alert alert-danger">
+                <div [hidden]="!refSalary.errors.required">
+                    Salary is required
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="button" class="btn btn-success" (click)="onGoBack()" value="Back" /> &nbsp; &nbsp; &nbsp;
+                <button class="btn btn-primary" *ngIf="!isEdit" (click)="onEdit()">Edit Employee</button>
+                <button class="btn btn-primary" *ngIf="isEdit" (click)="onUpdate(userForm.form.valid)">Update Employee</button>
+                <button class="btn btn-primary" *ngIf="!isEdit" (click)="onDeleteClick()">Delete</button>
+                <button class="btn btn-primary" *ngIf="isEdit" (click)="onCancel()">Cancel</button>
+                <button #refPopUp type="button" (click)="modal.show()" hidden="hidden">Model PopUp</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<app-modal #modal>
+    <div class="app-modal-header">
+        <h3 style="font-weight:bold;">Confirmation Dialog</h3>
+    </div>
+    <div class="app-modal-body">
+        <p style="font-weight:bold; text-align:center">{{ dialogMsg }}</p>
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" *ngIf="isEdit" class="btn btn-default" (click)="onConfirm()">Close</button>
+        <button type="button" *ngIf="!isEdit" class="btn btn-default" (click)="onDeleteConfirm()">Delete</button>
+        <button type="button" *ngIf="!isEdit" class="btn btn-default" (click)="modal.hide()">Cancel</button>
+    </div>
+</app-modal>

@@ -1,0 +1,12 @@
+Id=2,EmployeeName=Jimmy Kiker,Gender=Male,Designation=CEO,Salary=50000,Photo=male1.jpeg,IdentificatonDoc=
+Id=4,EmployeeName=Mirinda,Gender=Female,Designation=Team Lead,Salary=20000,Photo=female2.jpg,IdentificatonDoc=
+Id=6,EmployeeName=Samantha,Gender=Female,Designation=HR Manager,Salary=20000,Photo=female3.jpg,IdentificatonDoc=
+Id=8,EmployeeName=Adver,Gender=Male,Designation=Software Engineer,Salary=20000,Photo=male4.jpg,IdentificatonDoc=
+Id=10,EmployeeName=Chandler,Gender=Male,Designation=System Architect,Salary=30000,Photo=male3.jpg,IdentificatonDoc=
+Id=1,EmployeeName=Emmy,Gender=Female,Designation=Director,Salary=40000,Photo=female4.png,IdentificatonDoc=
+Id=1569116475,EmployeeName=Aini,Gender=Female,Designation=Sr Tester,Salary=15000,Photo=73490433-a665-474c-88ed-cc1b2ed53976-female1.jpg,IdentificatonDoc=
+Id=7,EmployeeName=Natasha,Gender=Female,Designation=DBA,Salary=20000,Photo=female4.png,IdentificatonDoc=
+Id=3,EmployeeName=Steven,Gender=Male,Designation=IT Manager,Salary=20000,Photo=male2.jpg,IdentificatonDoc=
+Id=5,EmployeeName=Jerry,Gender=Male,Designation=Sales Head,Salary=20000,Photo=male3.jpg,IdentificatonDoc=
+Id=9,EmployeeName=Rose,Gender=Male,Designation=System Analyst,Salary=30000,Photo=male1.jpeg,IdentificatonDoc=
+Id=1073095900,EmployeeName=Daviad,Gender=Male,Designation=Consultant,Salary=20000,Photo=77b0b0f9-0ac1-4fc7-914d-f348b700ff98-male1.jpeg,IdentificatonDoc=
